@@ -3,14 +3,15 @@ import styles from './ResultsContainer.module.css';
 import SongCard from '../SongCard/SongCard';
 
 
-function ResultsContainer(props) {
+function ResultsContainer({trackList, addToPlaylist}) {
 
 
     return (
         <div className={styles.resultCard}>
             <h1>Results</h1>
-            <SongCard title="sdafsfafsfa" artist='losfksaf' album='xsads'/>
-            <SongCard title="sdafsfafsfa" artist='losfksaf' album='xsads'/>
+            {trackList.map(song => {
+                return <SongCard key={song.uri} uri={song.uri} title={song.title} album={song.album} artist={song.artist} type="resultlist" handleButtonClick={addToPlaylist}/>
+            })}
         </div>
     )
 
