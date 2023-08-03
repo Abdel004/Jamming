@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from "./SearchForm.module.css";
 
-function SearchForm(props) {
+function SearchForm({searchForResults}) {
 
     const [songTitle, setSongTitle] = useState('');
 
@@ -11,7 +11,8 @@ function SearchForm(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log(event)
+        setSongTitle('')
+        searchForResults(event.target[0].value)
     }
 
     return (
